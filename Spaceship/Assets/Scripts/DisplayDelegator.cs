@@ -17,16 +17,25 @@ public class DisplayDelegator : MonoBehaviour
         {
             print("Setting display to host");
             SwitchCamera("HostCamera");
+            CommandPromt.InstanceCommandPromt.SetActive(false);
         }
         if (GUILayout.Button("Map Display"))
         {
             print("Setting display to map");
             SwitchCamera("MapCamera");
+            CommandPromt.InstanceCommandPromt.SetActive(false);
         }
         if (GUILayout.Button("Radar Display"))
         {
             print("Setting display to radar");
             SwitchCamera("RadarCamera");
+            CommandPromt.InstanceCommandPromt.SetActive(false);
+        }
+        if (GUILayout.Button("Console Display"))
+        {
+            print("Setting display to console");
+            SwitchCamera("ConsoleCamera");
+            CommandPromt.InstanceCommandPromt.SetActive(true);
         }
 
         GUILayout.EndArea();

@@ -4,6 +4,7 @@ using Unity.Netcode;
 public class DisplayManager : MonoBehaviour
 {
     private static NetworkManager MyNetworkManager;
+    private string IPAddress = "";
 
     private void Awake()
     {
@@ -15,6 +16,10 @@ public class DisplayManager : MonoBehaviour
         if(!MyNetworkManager.IsClient && !MyNetworkManager.IsServer)
         {
             StartButtons();
+
+            GUILayout.Label("IP Address");
+            IPAddress = GUILayout.TextField(IPAddress);
+            gameObject.GetComponent<Unity.Netcode.Transports.UTP.UnityTransport>().SetConnectionData(IPAddress, 7777);
         }
         GUILayout.EndArea();
     }
@@ -29,6 +34,7 @@ public class DisplayManager : MonoBehaviour
         {
             MyNetworkManager.StartClient();
         }
+
     }
 
 
